@@ -39,7 +39,6 @@ build = {
 				"src/pending_call.c";
 				"src/timeout.c";
 				"src/watch.c";
-				"vendor/compat-5.3/c-api/compat-5.3.c";
 			};
 			libraries = {
 				"dbus-1";
@@ -47,7 +46,6 @@ build = {
 			incdirs = {
 				"$(DBUS_INCDIR)";
 				"$(DBUS_ARCH_INCDIR)";
-				"vendor/compat-5.3/c-api/";
 			};
 			libdirs = {
 				"$(DBUS_LIBDIR)";

@@ -5,11 +5,10 @@ LUA_PKGNAME = lua5.3
 CFLAGS += -Wall -Wextra --pedantic -Wno-long-long
 CFLAGS += `$(PKG_CONFIG) --cflags $(LUA_PKGNAME) dbus-1`
 CFLAGS += -fPIC
-CFLAGS += -I ../vendor/compat-5.3/c-api
 
 LIBS = `$(PKG_CONFIG) --libs dbus-1`
 
-OBJS = ldbus.o error.o pending_call.o connection.o bus.o message.o message_iter.o timeout.o watch.o ../vendor/compat-5.3/c-api/compat-5.3.o
+OBJS = ldbus.o error.o pending_call.o connection.o bus.o message.o message_iter.o timeout.o watch.o
 
 all:	ldbus.so
 
