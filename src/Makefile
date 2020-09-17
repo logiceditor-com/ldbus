@@ -1,6 +1,6 @@
-LUA_LIBDIR = /usr/local/lib/lua/5.3
+LUA_LIBDIR = /usr/local/lib/lua/5.4
 PKG_CONFIG = pkg-config
-LUA_PKGNAME = lua5.3
+LUA_PKGNAME = lua5.4
 
 CFLAGS += -Wall -Wextra --pedantic -Wno-long-long
 CFLAGS += `$(PKG_CONFIG) --cflags $(LUA_PKGNAME) dbus-1`
