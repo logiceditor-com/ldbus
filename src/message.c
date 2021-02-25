@@ -19,6 +19,15 @@ static int ldbus_message_get_serial(lua_State *L) {
 	return 1;
 }
 
+static int ldbus_message_set_serial(lua_State *L) {
+	DBusMessage *message = check_DBusMessage(L, 1);
+    dbus_uint32_t serial = luaL_checkinteger(L, 2);
+
+	dbus_message_set_serial(message, serial);
+
+	return 0;
+}
+
 static int ldbus_message_set_reply_serial(lua_State *L) {
 	DBusMessage *message = check_DBusMessage(L, 1);
 	dbus_uint32_t reply_serial = luaL_checkinteger(L, 2);
@@ -365,6 +374,7 @@ static int ldbus_message_get_signature(lua_State *L) {
 LDBUS_INTERNAL void push_DBusMessage(lua_State *L, DBusMessage * message) {
 	static luaL_Reg const methods [] = {
 		{ "get_serial",          ldbus_message_get_serial },
+		{ "set_serial",          ldbus_message_set_serial },
 		{ "set_reply_serial",    ldbus_message_set_reply_serial },
 		{ "get_reply_serial",    ldbus_message_get_reply_serial },
 		{ "new_method_return",   ldbus_message_new_method_return },
