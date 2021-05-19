@@ -13,6 +13,8 @@
 #include "error.h"
 #include "connection.h"
 
+#include <stdio.h>
+
 static const char *const DispatchStatus_lst [] = {
 	"data_remains", /* DBUS_DISPATCH_DATA_REMAINS == 0 */
 	"complete",     /* DBUS_DISPATCH_COMPLETE     == 1 */
@@ -38,6 +40,9 @@ static int ldbus_connection_open(lua_State *L) {
 
 static int ldbus_connection_gc(lua_State *L) {
 	lDBusConnection *udata = check_lDBusConnection(L, 1);
+
+  printf("ldbus_connection_gc: connection: %p\n", udata->connection);
+  printf("ldbus_connection_gc: close: %d\n", udata->close);
 
 	if (udata->close) {
 		/* You must close a connection prior to releasing the last reference to the connection.

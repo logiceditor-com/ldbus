@@ -11,6 +11,8 @@
 
 #include "bus.h"
 
+#include <stdio.h>
+
 static const char *const BusType_lst [] = {
 	"session", /* DBUS_BUS_SESSION == 0 */
 	"system",  /* DBUS_BUS_SYSTEM  == 1 */
@@ -47,6 +49,8 @@ static int ldbus_bus_get(lua_State *L) {
 
 	DBusError *error = new_DBusError(L);
 	DBusConnection *connection = dbus_bus_get(type, error);
+
+  printf("ldbus_bus_get: connection: %p\n", connection);
 
 	if (dbus_error_is_set(error)) {
 		lua_pushboolean(L, FALSE);
