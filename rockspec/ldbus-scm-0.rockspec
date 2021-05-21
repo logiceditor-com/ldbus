@@ -2,7 +2,7 @@ package = "ldbus"
 version = "scm-0"
 
 source = {
-	url = "git://github.com/daurnimator/ldbus.git";
+	url = "git://github.com/logiceditor-com/ldbus.git";
 }
 
 description = {
